@@ -1,0 +1,60 @@
+Folder PATH listing
+Volume serial number is 4AAA-73D9
+C:.
+|   dockerfile
+|   init.sql
+|   output.txt
+|   query
+|   requirements.txt
+|   
+\---employee_project
+    |   db.sqlite3
+    |   manage.py
+    |   requirements.txt
+    |   
+    +---employee_project
+    |   |   asgi.py
+    |   |   settings.py
+    |   |   urls.py
+    |   |   wsgi.py
+    |   |   __init__.py
+    |   |   
+    |   \---__pycache__
+    |           settings.cpython-39.pyc
+    |           urls.cpython-39.pyc
+    |           wsgi.cpython-39.pyc
+    |           __init__.cpython-39.pyc
+    |           
+    \---employee_register
+        |   admin.py
+        |   apps.py
+        |   forms.py
+        |   models.py
+        |   tests.py
+        |   urls.py
+        |   views.py
+        |   __init__.py
+        |   
+        +---migrations
+        |   |   0001_initial.py
+        |   |   __init__.py
+        |   |   
+        |   \---__pycache__
+        |           0001_initial.cpython-39.pyc
+        |           __init__.cpython-39.pyc
+        |           
+        +---templates
+        |   \---employee_register
+        |           base.html
+        |           employee_form.html
+        |           employee_list.html
+        |           
+        \---__pycache__
+                admin.cpython-39.pyc
+                apps.cpython-39.pyc
+                forms.cpython-39.pyc
+                models.cpython-39.pyc
+                urls.cpython-39.pyc
+                views.cpython-39.pyc
+                __init__.cpython-39.pyc
+                
