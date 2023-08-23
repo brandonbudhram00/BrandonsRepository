@@ -1,0 +1,9 @@
+---
+group_name: cloudadmins
+user_accounts:
+  - name: user100
+    ssh_key_comment: "user100-key"
+  - name: user200
+    ssh_key_comment: "user200-key"
+  - name: user300
+    ssh_key_comment: "user300-key"

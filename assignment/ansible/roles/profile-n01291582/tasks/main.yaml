@@ -1,0 +1,9 @@
+---
+- name: Append lines to /etc/profile
+  blockinfile:
+    path: /etc/profile
+    insertbefore: BOF
+    block: |
+      # Test block added by Ansible...brand
+      export TMOUT=1500
+  become: true

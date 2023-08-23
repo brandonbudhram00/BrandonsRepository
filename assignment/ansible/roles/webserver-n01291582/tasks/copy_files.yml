@@ -1,0 +1,8 @@
+---
+- name: Copy files to /var/www/html
+  copy:
+    src: "/tmp/{{ inventory_hostname }}.html"
+    dest: "/var/www/html/index.html"
+    mode: '0444'
+  become: true
+  loop: "{{ groups['all'] }}"

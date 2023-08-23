@@ -1,0 +1,41 @@
+---
+- name: Create partitions
+  parted:
+    device: "{{ item.device }}"
+    number: 1
+    state: present
+    part_start: 1MB
+    part_end: "{{ item.size }}"
+  loop:
+    - { device: "{{ data_disk_devices[0] }}", size: "{{ partition_sizes[0] }}" }
+    - { device: "{{ data_disk_devices[1] }}", size: "{{ partition_sizes[1] }}" }
+  register: partitions_result
+  ignore_errors: yes
+
+- name: Format partitions
+  filesystem:
+    fstype: "{{ item.filesystem }}"
+    dev: "{{ item.device }}"
+  loop:
+    - { device: "{{ data_disk_devices[0] }}", filesystem: "{{ partition_filesystems[0] }}" }
+    - { device: "{{ data_disk_devices[1] }}", filesystem: "{{ partition_filesystems[1] }}" }
+  ignore_errors: yes
+
+- name: Create mount points
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: 0755
+  loop: "{{ mount_points }}"
+ 
+
+- name: Mount partitions
+  mount:
+    path: "{{ item.mount }}"
+    src: "{{ item.device }}"
+    fstype: "{{ item.filesystem }}"
+    state: mounted
+  loop:
+    - { device: "{{ data_disk_devices[0] }}", filesystem: "{{ partition_filesystems[0] }}", mount: "{{ mount_points[0] }}" }
+    - { device: "{{ data_disk_devices[1] }}", filesystem: "{{ partition_filesystems[1] }}", mount: "{{ mount_points[1] }}" }
+  ignore_errors: yes

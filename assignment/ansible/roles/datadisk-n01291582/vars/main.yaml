@@ -1,0 +1,13 @@
+---
+data_disk_devices:
+  - /dev/sdc
+  - /dev/sdc
+partition_sizes:
+  - 4GB
+  - 5GB
+partition_filesystems:
+  - xfs
+  - ext4
+mount_points:
+  - /part1
+  - /part2

@@ -1,0 +1,7 @@
+---
+- name: Create files with FQDN
+  copy:
+    content: "{{ ansible_fqdn }}"
+    dest: "/tmp/{{ inventory_hostname }}.html"
+  become: true
+  loop: "{{ groups['all'] }}"
